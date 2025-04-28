@@ -8,24 +8,28 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Ivan delivered a stunning website that perfectly captures our brand identity. The quick turnaround time was impressive!",
-    author: "Sarah Johnson",
-    company: "Bloom Boutique",
+    quote: "Ivan delivered a stunning website that perfectly captures our restaurant's identity. The quick turnaround time was impressive and our customers love it!",
+    author: "Maria Santos",
+    company: "Kusina Manila Restaurant",
+    location: "Makati City"
   },
   {
-    quote: "Working with Ivan was effortless. He understood exactly what we needed and delivered beyond our expectations in record time.",
-    author: "Michael Chen",
-    company: "Tech Innovations",
+    quote: "Working with Ivan was effortless. He understood exactly what our tour company needed and delivered a site that attracts both local and international tourists.",
+    author: "Juan Reyes",
+    company: "Island Adventures",
+    location: "Cebu City"
   },
   {
-    quote: "Our landing page conversion rate increased by 45% after Ivan redesigned it. Worth every penny!",
-    author: "Alicia Rodriguez",
-    company: "Growth Marketing",
+    quote: "Our landing page conversion rate increased by 45% after Ivan redesigned it. The site loads quickly on all devices, which was crucial for our business.",
+    author: "Sophia Lim",
+    company: "Growth Marketing Agency",
+    location: "Quezon City"
   },
   {
-    quote: "The dashboard Ivan created made our internal operations so much more efficient. His attention to detail is remarkable.",
-    author: "David Kim",
-    company: "Streamline Solutions",
+    quote: "The dashboard Ivan created made our retail operations across multiple locations so much more efficient. His attention to business needs is remarkable.",
+    author: "Antonio Mendoza",
+    company: "Retail Solutions",
+    location: "Davao City"
   },
 ];
 
@@ -33,13 +37,13 @@ export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
   };
@@ -52,7 +56,7 @@ export default function TestimonialsSection() {
             Client <span className="gradient-text">Testimonials</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take my word for it — hear from satisfied clients
+            Hear from our satisfied clients
           </p>
         </div>
 
@@ -61,7 +65,7 @@ export default function TestimonialsSection() {
             <div className="absolute -top-8 left-10 text-primary opacity-20">
               <Quote size={80} />
             </div>
-            
+
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0, y: 20 }}
@@ -77,21 +81,22 @@ export default function TestimonialsSection() {
                   <div>
                     <p className="font-bold text-lg">{testimonials[currentIndex].author}</p>
                     <p className="text-muted-foreground">{testimonials[currentIndex].company}</p>
+                    <p className="text-muted-foreground text-sm mt-1">{testimonials[currentIndex].location}</p>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
 
             <div className="flex justify-center mt-8 gap-4">
-              <Button 
-                variant="outline" 
-                size="icon" 
+              <Button
+                variant="outline"
+                size="icon"
                 onClick={prevTestimonial}
                 className="rounded-full"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
-              
+
               <div className="flex gap-2 items-center">
                 {testimonials.map((_, index) => (
                   <button
@@ -104,10 +109,10 @@ export default function TestimonialsSection() {
                   />
                 ))}
               </div>
-              
-              <Button 
-                variant="outline" 
-                size="icon" 
+
+              <Button
+                variant="outline"
+                size="icon"
                 onClick={nextTestimonial}
                 className="rounded-full"
               >

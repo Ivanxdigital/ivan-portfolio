@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,7 @@ const navItems = [
   { name: "Work", path: "#work" },
   { name: "Pricing", path: "#pricing" },
   { name: "Contact", path: "#contact" },
+  { name: "Style Tool", path: "/style-recommender" },
 ];
 
 export default function Header() {
@@ -50,20 +52,39 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-bold text-xl gradient-text">Ivan Infante</span>
+          <Image
+            src="/images/logo-2-transparent.png"
+            alt="Ivan Infante Logo"
+            width={40}
+            height={40}
+            className="h-8 w-auto md:h-10"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item, index) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className="text-foreground/80 hover:text-foreground transition-colors font-medium"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item, index) => {
+            // Check if this is the active link - exact match for style-recommender, startsWith for others
+            const isActive =
+              item.path.startsWith('/')
+                ? pathname === item.path
+                : pathname === '/' && item.path.startsWith('#');
+
+            return (
+              <Link
+                key={item.name}
+                href={item.path}
+                className={`transition-colors font-medium ${
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80 hover:text-foreground"
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
           <Button className="gradient-bg ml-2">Get a Site</Button>
         </nav>
 
@@ -76,15 +97,27 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent>
             <div className="flex flex-col space-y-6 mt-10">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.path}
-                  className="text-foreground/80 hover:text-foreground transition-colors font-medium text-lg"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                // Check if this is the active link - exact match for style-recommender, startsWith for others
+                const isActive =
+                  item.path.startsWith('/')
+                    ? pathname === item.path
+                    : pathname === '/' && item.path.startsWith('#');
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.path}
+                    className={`transition-colors font-medium text-lg ${
+                      isActive
+                        ? "text-primary font-semibold"
+                        : "text-foreground/80 hover:text-foreground"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <Button className="gradient-bg w-full">Get a Site</Button>
             </div>
           </SheetContent>

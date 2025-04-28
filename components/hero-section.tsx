@@ -35,17 +35,35 @@ export default function HeroSection() {
               variants={item}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              Websites in <span className="gradient-text">48h</span>, <br />
-              That Don't Look <span className="gradient-text">2008</span>.
+              Modern <span className="gradient-text">Websites</span> <br />
+              Delivered in <span className="gradient-text">48h</span>.
             </motion.h1>
 
             <motion.p
               variants={item}
               className="text-lg md:text-xl text-foreground/80 max-w-lg"
             >
-              Modern, responsive websites delivered in just 48 hours.
-              No lengthy timelines, just fast results that exceed expectations.
+              Affordable, professional websites for businesses.
+              Complete setup with hosting, domain, and SEO optimization.
             </motion.p>
+
+            <motion.div
+              variants={item}
+              className="flex items-center gap-3 mt-2"
+            >
+              <div className="flex items-center gap-1.5">
+                <span className="h-3 w-3 rounded-full bg-green-500"></span>
+                <span className="text-sm text-foreground/70">Fast delivery</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-3 w-3 rounded-full bg-green-500"></span>
+                <span className="text-sm text-foreground/70">Professional design</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-3 w-3 rounded-full bg-green-500"></span>
+                <span className="text-sm text-foreground/70">Responsive support</span>
+              </div>
+            </motion.div>
 
             <motion.div
               variants={item}
@@ -53,11 +71,11 @@ export default function HeroSection() {
             >
               <Button className="gradient-bg gap-2" size="lg">
                 <Phone size={18} />
-                Book a Call
+                Book a Free Consultation
               </Button>
               <Button variant="outline" size="lg" className="gap-2">
                 <Eye size={18} />
-                View Work
+                View Projects
               </Button>
             </motion.div>
           </motion.div>
@@ -90,7 +108,7 @@ export default function HeroSection() {
               <div className="relative">
                 <Image
                   src="/images/ivan-cutout.png"
-                  alt="Ivan"
+                  alt="Ivan Infante - Web Developer"
                   width={400}
                   height={400}
                   priority

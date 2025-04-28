@@ -222,20 +222,20 @@ function BrowserFrameCarousel() {
 const services = [
   {
     icon: <Globe className="h-16 w-16 text-white" />,
-    title: "Website",
-    description: "Full-featured, responsive websites for businesses and individuals. Includes essential pages and SEO optimization.",
+    title: "Business Website",
+    description: "Complete website solution with local SEO, multilingual content options, and mobile optimization for optimal performance on all devices.",
     recommended: false,
   },
   {
     icon: <Monitor className="h-16 w-16 text-white" />,
     title: "Landing Page",
-    description: "High-converting single page designed to showcase a specific product or service and drive action.",
+    description: "High-converting single page designed to showcase services and drive customer action. Optimized for search engines and conversions.",
     recommended: true,
   },
   {
     icon: <LayoutDashboard className="h-16 w-16 text-white" />,
     title: "Custom Dashboard",
-    description: "User-friendly dashboard interfaces for internal tools, analytics, and business management.",
+    description: "User-friendly admin interfaces to manage inventory, sales, and customer data with local payment integration options.",
     recommended: false,
   },
 ];
@@ -246,10 +246,10 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="gradient-text">Services</span>
+            Professional <span className="gradient-text">Web Services</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Fast, modern website development tailored to your specific needs
+            Affordable web solutions tailored for your business needs
           </p>
         </div>
 

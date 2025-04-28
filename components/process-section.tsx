@@ -8,17 +8,17 @@ const steps = [
   {
     icon: <FileSearch className="h-8 w-8 text-white" />,
     title: "Discovery",
-    description: "We discuss your needs, goals, and vision for the project to ensure we're aligned.",
+    description: "We discuss your business needs, target audience, and goals to create a strategy that works for your market.",
   },
   {
     icon: <Cpu className="h-8 w-8 text-white" />,
     title: "Build (1-2 days)",
-    description: "I design and develop your website with modern tools and techniques for optimal performance.",
+    description: "I design and develop your website with modern tools optimized for performance and SEO requirements.",
   },
   {
     icon: <Upload className="h-8 w-8 text-white" />,
-    title: "Revisions & Launch",
-    description: "After your review, I make any necessary adjustments before publishing your site to the world.",
+    title: "Launch & Optimize",
+    description: "After your review, I make adjustments, publish your site, and implement SEO strategies to attract your target customers.",
   },
 ];
 
@@ -28,10 +28,10 @@ export default function ProcessSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="gradient-text">Process</span>
+            Website <span className="gradient-text">Development Process</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A streamlined approach to quickly deliver high-quality websites
+            A streamlined approach to deliver high-quality websites efficiently
           </p>
         </div>
 

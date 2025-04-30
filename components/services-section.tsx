@@ -11,6 +11,7 @@ import Image from "next/image";
 const carouselImages = [
   "/images/dashboard.png",
   "/images/siargaorides-homepage.png",
+  "/images/siargao-weather-app.png",
 ];
 
 // Browser Frame with Image Carousel Component
@@ -61,7 +62,8 @@ function BrowserFrameCarousel() {
   // Image titles for the URL bar
   const imageTitles = [
     "dashboard-analytics-platform",
-    "siargao-rides-booking-website"
+    "siargao-rides-booking-website",
+    "siargao-weather-tides-app"
   ];
 
   return (

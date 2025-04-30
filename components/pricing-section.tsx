@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
+import { Check, X, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +10,9 @@ import { Badge } from "@/components/ui/badge";
 const plans = [
   {
     name: "Starter",
-    price: "₱2k",
+    price: "₱3,500",
+    originalPrice: "₱5,000",
+    promo: true,
     description: "Perfect for single pages and small projects",
     features: [
       { name: "Single Page", included: true },
@@ -93,7 +95,9 @@ export default function PricingSection() {
                   className={`relative h-full min-h-[500px] sm:min-h-[520px] border-border/30
                     ${plan.popular
                       ? 'gradient-bg border-0 text-white'
-                      : 'bg-secondary/20 shadow-inner'}
+                      : plan.promo
+                        ? 'bg-gradient-to-br from-slate-800 to-slate-900 border-0 text-white shadow-inner'
+                        : 'bg-secondary/20 shadow-inner'}
                     backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300`}
                 >
                   {plan.popular && (
@@ -103,12 +107,30 @@ export default function PricingSection() {
                       </Badge>
                     </div>
                   )}
+                  {plan.promo && (
+                    <div className="absolute top-3 right-3 z-10">
+                      <Badge className="bg-gradient-to-br from-amber-400 to-orange-500 text-white border-0 px-3 py-1 font-medium shadow-md flex items-center gap-1">
+                        <Clock className="h-3.5 w-3.5" />
+                        Limited Time Offer
+                      </Badge>
+                    </div>
+                  )}
                   <CardHeader className="space-y-0 pb-3">
                     <CardTitle className="text-2xl mb-0">{plan.name}</CardTitle>
                     <div className="mt-0">
                       <span className="text-3xl font-bold">{plan.price}</span>
+                      {plan.originalPrice && (
+                        <span className="ml-2 text-muted-foreground line-through text-sm">
+                          {plan.originalPrice}
+                        </span>
+                      )}
                     </div>
-                    <CardDescription className={plan.popular ? 'text-white/80' : ''}>
+                    {plan.promo && (
+                      <div className="mt-1 text-xs font-medium text-amber-500 dark:text-amber-400">
+                        Save ₱1,500 for a limited time!
+                      </div>
+                    )}
+                    <CardDescription className={plan.popular || plan.promo ? 'text-white/80' : ''}>
                       {plan.description}
                     </CardDescription>
                   </CardHeader>
@@ -148,7 +170,9 @@ export default function PricingSection() {
                         className={`w-full ${
                           plan.popular
                             ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-300'
-                            : 'gradient-bg hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-300'
+                            : plan.promo
+                              ? 'bg-gradient-to-br from-amber-400 to-orange-500 text-white hover:shadow-lg hover:shadow-orange-500/40 transition-all duration-300'
+                              : 'gradient-bg hover:shadow-lg hover:shadow-indigo-500/40 transition-all duration-300'
                         }`}
                       >
                         Get Started

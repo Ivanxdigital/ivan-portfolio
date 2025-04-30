@@ -36,7 +36,7 @@ export default function HeroSection() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
               Modern <span className="gradient-text">Websites</span> <br />
-              Delivered in <span className="gradient-text">48h</span>.
+              Delivered in <span className="gradient-text">48 Hours</span>.
             </motion.h1>
 
             <motion.p
@@ -69,9 +69,13 @@ export default function HeroSection() {
               variants={item}
               className="flex flex-wrap gap-4 pt-4"
             >
-              <Button className="gradient-bg gap-2" size="lg">
+              <Button 
+                className="gradient-bg gap-2" 
+                size="lg"
+                onClick={() => window.open(`https://wa.me/639993702550`, '_blank')}
+              >
                 <Phone size={18} />
-                Book a Free Consultation
+                WhatsApp Consultation
               </Button>
               <Button variant="outline" size="lg" className="gap-2">
                 <Eye size={18} />
